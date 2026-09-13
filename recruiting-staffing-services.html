@@ -27,8 +27,12 @@
     --navy:#0F2138;
     --steel:#5B6B80;
     --line: rgba(23,50,92,0.12);
+    --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
   *{box-sizing:border-box;}
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
+  }
   body{
     margin:0;
     background:var(--white);
@@ -37,12 +41,22 @@
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--sky); text-decoration:none; border-bottom:1px solid var(--line);}
+  a{color:var(--sky); text-decoration:none; border-bottom:1px solid var(--line); transition:color .25s var(--ease), border-color .25s var(--ease);}
   a:hover{color:var(--deep);}
   .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
   header{padding:32px 0; border-bottom:1px solid var(--line);}
-  header nav a{font-size:14px; color:var(--steel); border-bottom:none; margin-right:20px;}
-  header nav a:hover{color:var(--sky);}
+  header nav a{
+    font-size:14px;
+    color:var(--steel);
+    border-bottom:none;
+    margin-right:20px;
+    background-image:linear-gradient(currentColor, currentColor);
+    background-repeat:no-repeat;
+    background-position:left bottom;
+    background-size:0% 1px;
+    transition:background-size .35s var(--ease), color .25s var(--ease);
+  }
+  header nav a:hover{color:var(--sky); background-size:100% 1px;}
   .hero{padding:56px 0 40px;}
   .hero-kicker{
     font-family:'Rajdhani', sans-serif;
@@ -70,8 +84,10 @@
     font-size:15px;
     font-weight:500;
     border-radius:3px;
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), opacity .2s ease;
   }
-  .cta:hover{opacity:0.9; color:var(--white);}
+  .cta:hover{opacity:0.94; color:var(--white); transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(23,50,92,0.45);}
+  .cta:active{transform:translateY(0) scale(0.97); transition-duration:.12s;}
   main{padding:16px 0 80px;}
   h2{
     font-family:'Rajdhani', sans-serif;
@@ -86,6 +102,12 @@
     border-radius:6px;
     padding:20px 22px;
     background:var(--pale);
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
+  }
+  .svc-card:hover{
+    transform:translateY(-4px);
+    box-shadow:0 14px 28px -14px rgba(23,50,92,0.28);
+    border-color:var(--sky);
   }
   .svc-card h3{
     font-family:'Rajdhani', sans-serif;
