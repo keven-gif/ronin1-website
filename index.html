@@ -314,6 +314,51 @@
   }
   .powered-by span{font-size:11.5px; color:var(--steel);}
   .powered-by img{height:16px; width:auto; opacity:0.85;}
+  .footer-links{
+    display:flex;
+    gap:16px;
+    flex-wrap:wrap;
+  }
+  .footer-links a{
+    color:var(--steel);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .footer-links a:hover{color:var(--sky); border-color:var(--sky);}
+
+  /* ---- cookie notice ---- */
+  .cookie-notice{
+    position:fixed;
+    left:20px;
+    right:20px;
+    bottom:20px;
+    max-width:520px;
+    margin:0 auto;
+    background:var(--navy);
+    color:var(--white);
+    border-radius:8px;
+    padding:18px 20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.25);
+    z-index:100;
+    font-size:13.5px;
+    line-height:1.5;
+  }
+  .cookie-notice p{margin:0 0 12px; color:var(--white);}
+  .cookie-notice a{color:var(--ice); border-bottom:1px solid rgba(255,255,255,0.35);}
+  .cookie-notice a:hover{color:var(--white);}
+  .cookie-notice-actions{display:flex; justify-content:flex-end;}
+  .cookie-notice button{
+    background:var(--sky);
+    color:var(--white);
+    border:none;
+    border-radius:4px;
+    padding:8px 18px;
+    font-size:13.5px;
+    font-family:inherit;
+    cursor:pointer;
+  }
+  .cookie-notice button:hover{opacity:0.9;}
+  .cookie-notice[hidden]{display:none;}
 
   @media (max-width:560px){
     header{padding:26px 0;}
@@ -498,12 +543,38 @@
 <footer>
   <div class="wrap footer-row">
     <span>© 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved.</span>
+    <nav class="footer-links">
+      <a href="/privacy.html">Privacy Policy</a>
+      <a href="/terms.html">Terms of Service</a>
+      <a href="/cookies.html">Cookie Policy</a>
+    </nav>
     <div class="powered-by">
       <span>Powered by</span>
       <img src="data:image/jpeg;base64,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" alt="Halo AI logo">
     </div>
   </div>
 </footer>
+
+<div class="cookie-notice" id="cookie-notice" hidden>
+  <p>We don't use tracking or advertising cookies — the only external resource this site loads is Google Fonts. See our <a href="/cookies.html">Cookie Policy</a> for details.</p>
+  <div class="cookie-notice-actions">
+    <button id="cookie-notice-ok" type="button">Got it</button>
+  </div>
+</div>
+<script>
+  (function(){
+    try{
+      if(!localStorage.getItem('cookieNoticeSeen')){
+        var notice = document.getElementById('cookie-notice');
+        notice.hidden = false;
+        document.getElementById('cookie-notice-ok').addEventListener('click', function(){
+          localStorage.setItem('cookieNoticeSeen', '1');
+          notice.hidden = true;
+        });
+      }
+    }catch(e){}
+  })();
+</script>
 
 </body>
 </html>
