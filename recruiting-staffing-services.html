@@ -98,10 +98,12 @@
   }
   .svc-grid{display:grid; gap:20px;}
   .svc-card{
+    display:block;
     border:1px solid var(--line);
     border-radius:6px;
     padding:20px 22px;
     background:var(--pale);
+    text-decoration:none;
     transition:transform .35s var(--ease), box-shadow .35s var(--ease), border-color .35s var(--ease);
   }
   .svc-card:hover{
@@ -195,14 +197,14 @@
         <h3>Onboarding Support</h3>
         <p>Help getting new hires set up and started right, so placements stick.</p>
       </div>
-      <div class="svc-card">
-        <h3>Job Post</h3>
-        <p>Get your open roles in front of qualified candidates with an ongoing job board listing.</p>
-      </div>
-      <div class="svc-card">
-        <h3>CRM / ATS Setup</h3>
-        <p>Get your applicant tracking and candidate CRM configured properly so nothing falls through the cracks.</p>
-      </div>
+      <a class="svc-card" href="https://ronin1portal.cloud/" target="_blank" rel="noopener">
+        <h3>Ronin 1 Portal</h3>
+        <p>Our client &amp; candidate portal — visit ronin1portal.cloud &rarr;</p>
+      </a>
+      <a class="svc-card" href="http://r1openboard.cloud/" target="_blank" rel="noopener">
+        <h3>Ronin 1 Open Board</h3>
+        <p>Our open job board — visit r1openboard.cloud &rarr;</p>
+      </a>
     </div>
 
     <h2>Who we work with</h2>
