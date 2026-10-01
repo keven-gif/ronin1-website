@@ -336,6 +336,63 @@
     white-space:nowrap;
   }
 
+  /* ---- platform feature cards ---- */
+  .platform-grid{display:flex; flex-direction:column; gap:28px; margin-top:6px;}
+  .platform-card{
+    border:1px solid var(--line);
+    border-radius:16px;
+    overflow:hidden;
+    background:var(--pale);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
+  }
+  .platform-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 24px 48px -18px rgba(0,0,0,0.65), 0 0 36px -6px rgba(91,144,217,0.45);
+    border-color:var(--sky);
+  }
+  .platform-chrome{
+    display:flex;
+    align-items:center;
+    gap:6px;
+    padding:11px 16px;
+    background:rgba(255,255,255,0.03);
+    border-bottom:1px solid var(--line);
+  }
+  .platform-chrome .dot{width:9px; height:9px; border-radius:50%; display:inline-block; flex-shrink:0;}
+  .platform-chrome .dot-red{background:#FF5F57;}
+  .platform-chrome .dot-yellow{background:#FEBC2E;}
+  .platform-chrome .dot-green{background:#28C840;}
+  .platform-chrome .platform-url{margin-left:10px; font-size:12px; color:var(--steel); letter-spacing:0.01em;}
+  .platform-shot{display:block; overflow:hidden;}
+  .platform-shot img{display:block; width:100%; height:auto; transition:transform .5s var(--ease);}
+  .platform-card:hover .platform-shot img{transform:scale(1.015);}
+  .platform-body{padding:22px 26px 26px;}
+  .platform-title{
+    display:flex;
+    align-items:center;
+    font-family:'Rajdhani', sans-serif;
+    font-weight:700;
+    font-size:21px;
+    color:var(--navy);
+    margin:0 0 10px;
+  }
+  .platform-desc{font-size:14.5px; color:var(--steel); line-height:1.6; margin:0 0 20px; max-width:58ch;}
+  .platform-visit{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:var(--white);
+    color:var(--deep);
+    font-weight:600;
+    font-size:14px;
+    padding:10px 22px;
+    border-radius:999px;
+    text-decoration:none;
+    border-bottom:none;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), opacity .2s ease;
+  }
+  .platform-visit:hover{opacity:0.9; color:var(--deep); transform:translateY(-1px); box-shadow:0 8px 18px -8px rgba(0,0,0,0.6), 0 0 20px -2px rgba(91,144,217,0.5);}
+
   /* ---- close ---- */
   .close{
     padding:104px 0 120px;
@@ -419,17 +476,21 @@
   .reveal.is-visible{opacity:1; transform:none;}
 
   /* staggered entrance for child items once their section reveals */
-  .team-card, .svc-row, .photo-grid .photo-frame{
+  .team-card, .svc-row, .photo-grid .photo-frame, .platform-card{
     opacity:0;
     transform:translateY(14px);
     transition:opacity .6s var(--ease), transform .6s var(--ease), background-color .3s var(--ease), border-color .4s var(--ease);
   }
   .reveal.is-visible .team-card,
   .reveal.is-visible .svc-row,
-  .reveal.is-visible .photo-grid .photo-frame{
+  .reveal.is-visible .photo-grid .photo-frame,
+  .reveal.is-visible .platform-card{
     opacity:1;
     transform:none;
   }
+  .reveal.is-visible .platform-grid .platform-card:nth-child(1){transition-delay:.05s;}
+  .reveal.is-visible .platform-grid .platform-card:nth-child(2){transition-delay:.15s;}
+  .reveal.is-visible .platform-card:hover{transform:translateY(-5px);}
   .reveal.is-visible .team-grid .team-card:nth-child(1){transition-delay:.05s;}
   .reveal.is-visible .team-grid .team-card:nth-child(2){transition-delay:.15s;}
   .reveal.is-visible .team-grid .team-card:nth-child(3){transition-delay:.25s;}
@@ -772,14 +833,40 @@
     <div class="category">
       <p class="category-title"><img class="mascot-mark" src="/images/mascot-icon.png" alt="">PLATFORMS</p>
       <p class="platforms-intro">Two web platforms built and operated by Ronin 1 Digital Marketing and Recruiting LLC.</p>
-      <a class="svc-row" href="https://ronin1portal.cloud/" target="_blank" rel="noopener">
-        <span class="svc-name">Ronin 1 Portal<span class="badge-new">NEW</span><span class="svc-cadence">Our internal operating &amp; financial system — client accounts, invoices, quotes, expenses, payroll, inventory, taxes, and placement tracking, all in one place</span></span>
-        <span class="svc-price">Visit &rarr;</span>
-      </a>
-      <a class="svc-row" href="http://r1openboard.cloud/" target="_blank" rel="noopener">
-        <span class="svc-name">Ronin 1 Open Board<span class="badge-new">NEW</span><span class="svc-cadence">A free, community-run job board we built — post or browse open roles in about 60 seconds, no fees and no gatekeeping</span></span>
-        <span class="svc-price">Visit &rarr;</span>
-      </a>
+      <div class="platform-grid">
+        <div class="platform-card">
+          <a class="platform-shot" href="https://ronin1portal.cloud/" target="_blank" rel="noopener">
+            <div class="platform-chrome">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="platform-url">ronin1portal.cloud</span>
+            </div>
+            <img src="/images/portal-screenshot.png" alt="Ronin 1 Portal client directory screen" loading="lazy" decoding="async">
+          </a>
+          <div class="platform-body">
+            <p class="platform-title">Ronin 1 Portal<span class="badge-new">NEW</span></p>
+            <p class="platform-desc">Our internal operating &amp; financial system — client accounts, invoices, quotes, expenses, payroll, inventory, taxes, and placement tracking, all in one place.</p>
+            <a class="platform-visit" href="https://ronin1portal.cloud/" target="_blank" rel="noopener">Visit ronin1portal.cloud &rarr;</a>
+          </div>
+        </div>
+        <div class="platform-card">
+          <a class="platform-shot" href="http://r1openboard.cloud/" target="_blank" rel="noopener">
+            <div class="platform-chrome">
+              <span class="dot dot-red"></span>
+              <span class="dot dot-yellow"></span>
+              <span class="dot dot-green"></span>
+              <span class="platform-url">r1openboard.cloud</span>
+            </div>
+            <img src="/images/openboard-screenshot.png" alt="Ronin 1 Open Board homepage" loading="lazy" decoding="async">
+          </a>
+          <div class="platform-body">
+            <p class="platform-title">Ronin 1 Open Board<span class="badge-new">NEW</span></p>
+            <p class="platform-desc">A free, community-run job board we built — post or browse open roles in about 60 seconds, no fees and no gatekeeping.</p>
+            <a class="platform-visit" href="http://r1openboard.cloud/" target="_blank" rel="noopener">Visit r1openboard.cloud &rarr;</a>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
