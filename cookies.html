@@ -14,14 +14,15 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
+    --bg:#0A1420;
     --white:#FFFFFF;
-    --pale:#EEF4FC;
+    --pale:#122540;
     --sky:#5B90D9;
-    --sky-text:#3D74C4;
+    --sky-text:#7FB2F5;
     --deep:#17325C;
-    --navy:#0F2138;
-    --steel:#5B6B80;
-    --line: rgba(23,50,92,0.12);
+    --navy:#EDF3FB;
+    --steel:#8CA3C4;
+    --line: rgba(255,255,255,0.12);
   }
   *{box-sizing:border-box;}
   a:focus-visible, button:focus-visible{
@@ -31,14 +32,14 @@
   }
   body{
     margin:0;
-    background:var(--white);
+    background:var(--bg);
     color:var(--navy);
     font-family:'IBM Plex Sans', sans-serif;
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
   a{color:var(--sky-text); text-decoration:none; border-bottom:1px solid var(--line);}
-  a:hover{color:var(--deep);}
+  a:hover{color:var(--navy);}
   .wrap{max-width:720px; margin:0 auto; padding:0 28px;}
   header{padding:32px 0; border-bottom:1px solid var(--line);}
   header a.back{font-size:14px; color:var(--steel); border-bottom:none;}
@@ -56,7 +57,7 @@
     font-family:'Rajdhani', sans-serif;
     font-weight:600;
     font-size:20px;
-    color:var(--deep);
+    color:var(--sky-text);
     margin:38px 0 12px;
   }
   p, li{color:var(--navy); font-size:15.5px;}
@@ -64,6 +65,7 @@
   th, td{text-align:left; padding:10px 12px; border-bottom:1px solid var(--line);}
   th{color:var(--steel); font-weight:600; font-size:12.5px; letter-spacing:0.02em; text-transform:uppercase;}
   footer{padding:28px 0 56px; border-top:1px solid var(--line); color:var(--steel); font-size:13px;}
+  .mascot-mark{height:14px; width:auto; display:inline-block; vertical-align:-2px; opacity:0.9;}
 </style>
 </head>
 <body>
@@ -102,9 +104,12 @@
 
 <footer>
   <div class="wrap">
-    © 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved. &middot;
-    <a href="/">Home</a> &middot;
-    <a href="/privacy.html">Privacy Policy</a> &middot;
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="Ronin 1 mascot"> &copy; 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved.
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
+    <a href="/">Home</a>
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
+    <a href="/privacy.html">Privacy Policy</a>
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
     <a href="/terms.html">Terms of Service</a>
   </div>
 </footer>

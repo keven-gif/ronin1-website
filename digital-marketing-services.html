@@ -19,15 +19,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   :root{
+    --bg:#0A1420;
     --white:#FFFFFF;
-    --pale:#EEF4FC;
-    --ice:#CFE2FA;
+    --pale:#122540;
+    --ice:#BFD9F7;
     --sky:#5B90D9;
-    --sky-text:#3D74C4;
+    --sky-text:#7FB2F5;
     --deep:#17325C;
-    --navy:#0F2138;
-    --steel:#5B6B80;
-    --line: rgba(23,50,92,0.12);
+    --navy:#EDF3FB;
+    --steel:#8CA3C4;
+    --line: rgba(255,255,255,0.12);
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
   *{box-sizing:border-box;}
@@ -41,14 +42,14 @@
   }
   body{
     margin:0;
-    background:var(--white);
+    background:var(--bg);
     color:var(--navy);
     font-family:'IBM Plex Sans', sans-serif;
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
   a{color:var(--sky-text); text-decoration:none; border-bottom:1px solid var(--line); transition:color .25s var(--ease), border-color .25s var(--ease);}
-  a:hover{color:var(--deep);}
+  a:hover{color:var(--navy);}
   .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
   header{padding:32px 0; border-bottom:1px solid var(--line);}
   header nav a{
@@ -63,6 +64,16 @@
     transition:background-size .35s var(--ease), color .25s var(--ease);
   }
   header nav a:hover{color:var(--sky-text); background-size:100% 1px;}
+  header nav a.nav-cta{
+    background-image:none;
+    background:var(--white);
+    color:var(--deep);
+    font-weight:600;
+    padding:9px 20px;
+    border-radius:999px;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease), opacity .2s ease;
+  }
+  header nav a.nav-cta:hover{background-size:0; color:var(--deep); opacity:0.9; transform:translateY(-1px); box-shadow:0 8px 18px -8px rgba(0,0,0,0.6), 0 0 20px -2px rgba(91,144,217,0.5);}
   .hero{padding:80px 0 48px;}
   .hero-kicker{
     font-family:'Rajdhani', sans-serif;
@@ -83,16 +94,16 @@
   .lede{font-size:17px; color:var(--steel); max-width:56ch; margin:0 0 26px;}
   .cta{
     display:inline-block;
-    background:linear-gradient(135deg, var(--sky), var(--deep));
-    color:var(--white);
+    background:var(--white);
+    color:var(--deep);
     text-decoration:none;
     padding:14px 28px;
     font-size:15px;
-    font-weight:500;
+    font-weight:600;
     border-radius:999px;
     transition:transform .35s var(--ease), box-shadow .35s var(--ease), opacity .2s ease;
   }
-  .cta:hover{opacity:0.94; color:var(--white); transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(23,50,92,0.45);}
+  .cta:hover{opacity:0.9; color:var(--deep); transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(0,0,0,0.6), 0 0 28px -4px rgba(91,144,217,0.55);}
   .cta:active{transform:translateY(0) scale(0.97); transition-duration:.12s;}
   main{padding:16px 0 80px;}
   h2{
@@ -112,14 +123,14 @@
   }
   .svc-card:hover{
     transform:translateY(-4px);
-    box-shadow:0 14px 28px -14px rgba(23,50,92,0.28);
+    box-shadow:0 14px 28px -14px rgba(0,0,0,0.6), 0 0 20px -4px rgba(91,144,217,0.4);
     border-color:var(--sky);
   }
   .svc-card h3{
     font-family:'Rajdhani', sans-serif;
     font-weight:600;
     font-size:18px;
-    color:var(--deep);
+    color:var(--navy);
     margin:0 0 8px;
   }
   .svc-card p{margin:0; font-size:15px; color:var(--navy);}
@@ -127,6 +138,7 @@
   footer{padding:28px 0 56px; border-top:1px solid var(--line); color:var(--steel); font-size:13px;}
   footer a{color:var(--steel);}
   footer a:hover{color:var(--sky-text);}
+  .mascot-mark{height:14px; width:auto; display:inline-block; vertical-align:-2px; opacity:0.9;}
 </style>
 <script type="application/ld+json">
 {
@@ -159,7 +171,7 @@
     <nav>
       <a href="/">Ronin 1 Home</a>
       <a href="/recruiting-staffing-services.html">Recruiting</a>
-      <a href="/#contact">Contact</a>
+      <a class="nav-cta" href="/#contact">Contact</a>
     </nav>
   </div>
 </header>
@@ -210,10 +222,14 @@
 
 <footer>
   <div class="wrap">
-    © 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved. &middot;
-    <a href="/">Home</a> &middot;
-    <a href="/recruiting-staffing-services.html">Recruiting</a> &middot;
-    <a href="/privacy.html">Privacy</a> &middot;
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="Ronin 1 mascot"> &copy; 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved.
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
+    <a href="/">Home</a>
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
+    <a href="/recruiting-staffing-services.html">Recruiting</a>
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
+    <a href="/privacy.html">Privacy</a>
+    <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
     <a href="/terms.html">Terms</a>
   </div>
 </footer>
