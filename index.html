@@ -253,6 +253,9 @@
 
   .category{margin-bottom:56px;}
   .category-title{
+    display:flex;
+    align-items:center;
+    gap:8px;
     font-family:'Rajdhani', sans-serif;
     font-weight:600;
     font-size:14px;
@@ -262,6 +265,15 @@
     padding-bottom:10px;
     border-bottom:1px solid var(--line);
   }
+  .mascot-mark{
+    display:inline-block;
+    height:14px;
+    width:auto;
+    flex-shrink:0;
+    opacity:0.9;
+    vertical-align:-2px;
+  }
+  .category-title .mascot-mark{height:18px; opacity:1; vertical-align:baseline;}
   .platforms-intro{
     font-size:13.5px;
     color:var(--steel);
@@ -458,7 +470,8 @@
   .powered-by img{height:16px; width:auto; opacity:0.92; background:var(--white); border-radius:4px; padding:3px 5px;}
   .footer-links{
     display:flex;
-    gap:16px;
+    align-items:center;
+    gap:10px;
     flex-wrap:wrap;
   }
   .footer-links a{
@@ -657,7 +670,7 @@
     </div>
 
     <div class="category">
-      <p class="category-title">MARKETING</p>
+      <p class="category-title"><img class="mascot-mark" src="/images/mascot-icon.png" alt="">MARKETING</p>
       <div class="svc-row">
         <span class="svc-name">Newsletter Management<span class="svc-cadence">Monthly</span></span>
         <span class="svc-price">$150.00</span>
@@ -682,7 +695,7 @@
     </div>
 
     <div class="category">
-      <p class="category-title">RECRUITING SERVICES</p>
+      <p class="category-title"><img class="mascot-mark" src="/images/mascot-icon.png" alt="">RECRUITING SERVICES</p>
       <div class="svc-row">
         <span class="svc-name">Executive Search Placement<span class="svc-cadence">One-time</span></span>
         <span class="svc-price">$8,000.00</span>
@@ -711,7 +724,7 @@
     </div>
 
     <div class="category">
-      <p class="category-title">PLATFORMS</p>
+      <p class="category-title"><img class="mascot-mark" src="/images/mascot-icon.png" alt="">PLATFORMS</p>
       <p class="platforms-intro">Two web platforms built and operated by Ronin 1 Digital Marketing and Recruiting LLC.</p>
       <a class="svc-row" href="https://ronin1portal.cloud/" target="_blank" rel="noopener">
         <span class="svc-name">Ronin 1 Portal<span class="badge-new">NEW</span><span class="svc-cadence">Our internal operating &amp; financial system — client accounts, invoices, quotes, expenses, payroll, inventory, taxes, and placement tracking, all in one place</span></span>
@@ -810,12 +823,16 @@
 
 <footer>
   <div class="wrap footer-row">
-    <span>© 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved.</span>
+    <span><img class="mascot-mark" src="/images/mascot-icon.png" alt="Ronin 1 mascot"> © 2026 Ronin 1 Digital Marketing &amp; Recruiting. All rights reserved.</span>
     <nav class="footer-links">
       <a href="/digital-marketing-services.html">Digital Marketing</a>
+      <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
       <a href="/recruiting-staffing-services.html">Recruiting</a>
+      <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
       <a href="/privacy.html">Privacy Policy</a>
+      <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
       <a href="/terms.html">Terms of Service</a>
+      <img class="mascot-mark" src="/images/mascot-icon.png" alt="">
       <a href="/cookies.html">Cookie Policy</a>
     </nav>
     <div class="powered-by">
