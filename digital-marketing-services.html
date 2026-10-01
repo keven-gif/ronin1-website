@@ -23,6 +23,7 @@
     --pale:#EEF4FC;
     --ice:#CFE2FA;
     --sky:#5B90D9;
+    --sky-text:#3D74C4;
     --deep:#17325C;
     --navy:#0F2138;
     --steel:#5B6B80;
@@ -30,6 +31,11 @@
     --ease: cubic-bezier(0.16, 1, 0.3, 1);
   }
   *{box-sizing:border-box;}
+  a:focus-visible, button:focus-visible{
+    outline:2px solid var(--sky-text);
+    outline-offset:3px;
+    border-radius:2px;
+  }
   @media (prefers-reduced-motion: reduce){
     *{animation-duration:0.01ms !important; animation-iteration-count:1 !important; transition-duration:0.01ms !important;}
   }
@@ -41,7 +47,7 @@
     line-height:1.65;
     -webkit-font-smoothing:antialiased;
   }
-  a{color:var(--sky); text-decoration:none; border-bottom:1px solid var(--line); transition:color .25s var(--ease), border-color .25s var(--ease);}
+  a{color:var(--sky-text); text-decoration:none; border-bottom:1px solid var(--line); transition:color .25s var(--ease), border-color .25s var(--ease);}
   a:hover{color:var(--deep);}
   .wrap{max-width:760px; margin:0 auto; padding:0 28px;}
   header{padding:32px 0; border-bottom:1px solid var(--line);}
@@ -56,14 +62,14 @@
     background-size:0% 1px;
     transition:background-size .35s var(--ease), color .25s var(--ease);
   }
-  header nav a:hover{color:var(--sky); background-size:100% 1px;}
+  header nav a:hover{color:var(--sky-text); background-size:100% 1px;}
   .hero{padding:80px 0 48px;}
   .hero-kicker{
     font-family:'Rajdhani', sans-serif;
     font-weight:600;
     letter-spacing:0.08em;
     font-size:13px;
-    color:var(--sky);
+    color:var(--sky-text);
     margin:0 0 10px;
   }
   h1{
@@ -120,7 +126,7 @@
   .areas{color:var(--steel); font-size:15px;}
   footer{padding:28px 0 56px; border-top:1px solid var(--line); color:var(--steel); font-size:13px;}
   footer a{color:var(--steel);}
-  footer a:hover{color:var(--sky);}
+  footer a:hover{color:var(--sky-text);}
 </style>
 <script type="application/ld+json">
 {
