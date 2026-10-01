@@ -60,6 +60,12 @@
   header{
     padding:36px 0;
     border-bottom:1px solid var(--line);
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(255,255,255,0.82);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
   }
   .brand-row{
     display:flex;
@@ -108,10 +114,16 @@
 
   /* ---- hero ---- */
   .hero{
-    padding:88px 0 80px;
+    padding:112px 0 96px;
     border-bottom:1px solid var(--line);
     background:
       radial-gradient(700px 320px at 85% -10%, var(--ice), transparent 70%);
+  }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:3fr 2fr;
+    gap:32px;
+    align-items:end;
   }
   .hero-kicker{
     color:var(--sky);
@@ -124,17 +136,24 @@
   .hero h1{
     font-family:'Rajdhani', sans-serif;
     font-weight:700;
-    font-size:clamp(38px, 7vw, 58px);
-    line-height:1.1;
-    margin:0 0 28px;
-    max-width:15ch;
+    font-size:clamp(38px, 6.4vw, 64px);
+    line-height:1.08;
+    margin:0;
     color:var(--navy);
   }
+  .hero-side{
+    padding-bottom:6px;
+  }
   .hero p{
-    font-size:18px;
+    font-size:17px;
     color:var(--steel);
-    max-width:52ch;
-    margin:0 0 36px;
+    max-width:38ch;
+    margin:0 0 28px;
+  }
+  @media (max-width:760px){
+    .hero-grid{grid-template-columns:1fr; align-items:start;}
+    .hero h1{margin:0 0 24px; max-width:16ch;}
+    .hero p{max-width:52ch;}
   }
   .hero-cta{
     display:inline-flex;
@@ -154,7 +173,7 @@
   .hero-cta:active{transform:translateY(0) scale(0.97); transition-duration:.12s;}
 
   /* ---- services ---- */
-  .services{padding:88px 0 40px;}
+  .services{padding:112px 0 48px;}
   .section-head{
     display:flex;
     justify-content:space-between;
@@ -178,7 +197,7 @@
   }
 
   /* ---- team ---- */
-  .team{padding:88px 0 40px; border-bottom:1px solid var(--line);}
+  .team{padding:112px 0 48px; border-bottom:1px solid var(--line);}
   .team-grid{
     display:flex;
     flex-wrap:wrap;
@@ -197,9 +216,9 @@
     display:block;
     flex-shrink:0;
     border:1px solid var(--line);
-    transition:transform .4s var(--ease), box-shadow .4s var(--ease);
+    transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s var(--ease);
   }
-  .team-card:hover .team-photo{transform:scale(1.06); box-shadow:0 12px 24px -10px rgba(23,50,92,0.35);}
+  .team-card:hover .team-photo{transform:scale(1.06); box-shadow:0 12px 24px -10px rgba(23,50,92,0.35); border-color:var(--sky);}
   .team-name{
     font-family:'Rajdhani', sans-serif;
     font-weight:700;
@@ -234,14 +253,15 @@
     justify-content:space-between;
     align-items:baseline;
     gap:16px;
-    padding:16px 10px;
+    padding:16px 10px 16px 14px;
     margin:0 -10px;
     border-radius:4px;
     border-bottom:1px solid var(--line);
+    border-left:2px solid transparent;
     text-decoration:none;
-    transition:background-color .3s var(--ease), transform .3s var(--ease);
+    transition:background-color .3s var(--ease), transform .3s var(--ease), border-left-color .3s var(--ease);
   }
-  .svc-row:hover{background-color:var(--pale); transform:translateX(3px);}
+  .svc-row:hover{background-color:var(--pale); transform:translateX(3px); border-left-color:var(--sky);}
   .svc-row:last-child{border-bottom:none;}
   .svc-name{
     font-size:17px;
@@ -273,7 +293,7 @@
 
   /* ---- close ---- */
   .close{
-    padding:80px 0 96px;
+    padding:104px 0 120px;
     border-bottom:1px solid var(--line);
     background:var(--pale);
   }
@@ -303,7 +323,7 @@
   .contact-list a:hover{border-color:var(--sky); color:var(--sky); transform:translateX(3px);}
 
   .photography{
-    padding:88px 0 40px;
+    padding:112px 0 48px;
     border-bottom:1px solid var(--line);
   }
   .photo-group{margin-bottom:56px;}
@@ -331,7 +351,10 @@
     display:block;
     overflow:hidden;
     border-radius:2px;
+    border:1px solid transparent;
+    transition:border-color .4s var(--ease);
   }
+  .photo-grid .photo-frame:hover{border-color:var(--sky);}
   .photo-grid img{
     width:100%;
     height:100%;
@@ -349,6 +372,38 @@
   /* ---- scroll reveal ---- */
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
   .reveal.is-visible{opacity:1; transform:none;}
+
+  /* staggered entrance for child items once their section reveals */
+  .team-card, .svc-row, .photo-grid .photo-frame{
+    opacity:0;
+    transform:translateY(14px);
+    transition:opacity .6s var(--ease), transform .6s var(--ease), background-color .3s var(--ease), border-color .4s var(--ease);
+  }
+  .reveal.is-visible .team-card,
+  .reveal.is-visible .svc-row,
+  .reveal.is-visible .photo-grid .photo-frame{
+    opacity:1;
+    transform:none;
+  }
+  .reveal.is-visible .team-grid .team-card:nth-child(1){transition-delay:.05s;}
+  .reveal.is-visible .team-grid .team-card:nth-child(2){transition-delay:.15s;}
+  .reveal.is-visible .team-grid .team-card:nth-child(3){transition-delay:.25s;}
+  .reveal.is-visible .team-grid .team-card:nth-child(4){transition-delay:.35s;}
+  .reveal.is-visible .category .svc-row:nth-child(2){transition-delay:.04s;}
+  .reveal.is-visible .category .svc-row:nth-child(3){transition-delay:.08s;}
+  .reveal.is-visible .category .svc-row:nth-child(4){transition-delay:.12s;}
+  .reveal.is-visible .category .svc-row:nth-child(5){transition-delay:.16s;}
+  .reveal.is-visible .category .svc-row:nth-child(6){transition-delay:.2s;}
+  .reveal.is-visible .category .svc-row:nth-child(7){transition-delay:.24s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(1){transition-delay:.03s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(2){transition-delay:.06s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(3){transition-delay:.09s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(4){transition-delay:.12s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(5){transition-delay:.15s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(6){transition-delay:.18s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(7){transition-delay:.21s;}
+  .reveal.is-visible .photo-grid .photo-frame:nth-child(8){transition-delay:.24s;}
+  .reveal.is-visible .svc-row:hover{transform:translateX(3px);}
 
   footer{
     padding:32px 0 64px;
@@ -418,6 +473,8 @@
   @media (max-width:560px){
     header{padding:26px 0;}
     .hero{padding:60px 0 52px;}
+    .team, .services, .photography{padding-top:64px;}
+    .close{padding:72px 0 88px;}
     nav a{margin-left:0; margin-right:18px;}
     .footer-row{flex-direction:column; align-items:flex-start;}
   }
@@ -515,11 +572,15 @@
 </header>
 
 <section class="hero">
-  <div class="wrap">
-    <p class="hero-kicker">CORONA, CALIFORNIA</p>
-    <h1>Marketing and recruiting for those who answer to no master but the mission.</h1>
-    <p>Ronin 1 builds newsletters that get opened, pipelines that get filled, and employer brands people actually trust — for small businesses and hiring agencies who'd rather move fast than wait.</p>
-    <a class="hero-cta" href="#contact">Start a conversation</a>
+  <div class="wrap hero-grid">
+    <div>
+      <p class="hero-kicker">CORONA, CALIFORNIA</p>
+      <h1>Marketing and recruiting for those who answer to no master but the mission.</h1>
+    </div>
+    <div class="hero-side">
+      <p>Ronin 1 builds newsletters that get opened, pipelines that get filled, and employer brands people actually trust — for small businesses and hiring agencies who'd rather move fast than wait.</p>
+      <a class="hero-cta" href="#contact">Start a conversation</a>
+    </div>
   </div>
 </section>
 
