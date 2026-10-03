@@ -133,17 +133,26 @@
   nav a.nav-cta:hover{background-size:0; color:var(--deep); opacity:0.9; transform:translateY(-1px); box-shadow:0 8px 18px -8px rgba(0,0,0,0.6), 0 0 20px -2px rgba(91,144,217,0.5);}
 
   /* ---- hero ---- */
+  .sr-only{
+    position:absolute;
+    width:1px; height:1px;
+    padding:0; margin:-1px;
+    overflow:hidden;
+    clip:rect(0,0,0,0);
+    white-space:nowrap;
+    border:0;
+  }
   .hero{
-    padding:112px 0 96px;
+    padding:128px 0 112px;
     border-bottom:1px solid var(--line);
     background:
-      radial-gradient(700px 320px at 85% -10%, rgba(91,144,217,0.22), transparent 70%);
+      radial-gradient(900px 420px at 50% -10%, rgba(91,144,217,0.22), transparent 70%);
   }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:3fr 2fr;
-    gap:32px;
-    align-items:end;
+  .hero-center{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
   }
   .hero-kicker{
     color:var(--sky-text);
@@ -151,29 +160,29 @@
     font-weight:600;
     letter-spacing:0.04em;
     font-size:15px;
-    margin:0 0 18px;
-  }
-  .hero h1{
-    font-family:'Rajdhani', sans-serif;
-    font-weight:700;
-    font-size:clamp(38px, 6.4vw, 64px);
-    line-height:1.08;
-    margin:0;
-    color:var(--navy);
-  }
-  .hero-side{
-    padding-bottom:6px;
-  }
-  .hero p{
-    font-size:17px;
-    color:var(--steel);
-    max-width:38ch;
     margin:0 0 28px;
   }
-  @media (max-width:760px){
-    .hero-grid{grid-template-columns:1fr; align-items:start;}
-    .hero h1{margin:0 0 24px; max-width:16ch;}
-    .hero p{max-width:52ch;}
+  .hero-logo{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:20px;
+    margin:0 0 44px;
+  }
+  .hero-logo-mark{
+    height:104px;
+    width:auto;
+  }
+  .hero-wordmark{
+    font-family:'Rajdhani', sans-serif;
+    font-weight:700;
+    font-size:clamp(42px, 8vw, 76px);
+    letter-spacing:0.03em;
+    line-height:1;
+    color:var(--navy);
+  }
+  @media (max-width:560px){
+    .hero-logo-mark{height:76px;}
   }
   .hero-cta{
     display:inline-flex;
@@ -731,15 +740,14 @@
 </header>
 
 <section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <p class="hero-kicker">CORONA, CALIFORNIA</p>
-      <h1>Marketing and recruiting for those who answer to no master but the mission.</h1>
+  <div class="wrap hero-center">
+    <p class="hero-kicker">CORONA, CALIFORNIA</p>
+    <h1 class="sr-only">Marketing and recruiting for those who answer to no master but the mission.</h1>
+    <div class="hero-logo">
+      <img class="hero-logo-mark" src="/images/r1-logo-dark.png" alt="Ronin 1">
+      <span class="hero-wordmark">RONIN 1</span>
     </div>
-    <div class="hero-side">
-      <p>We run the newsletters, fill the hiring pipeline, and shape the employer brand — the parts most small businesses and hiring agencies never get around to themselves.</p>
-      <a class="hero-cta" href="#contact">Start a conversation</a>
-    </div>
+    <a class="hero-cta" href="#contact">Start a conversation</a>
   </div>
 </section>
 
