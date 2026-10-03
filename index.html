@@ -421,66 +421,18 @@
   }
   .contact-list a:hover{border-color:var(--sky); color:var(--sky-text); transform:translateX(3px);}
 
-  .photography{
-    padding:112px 0 48px;
-    border-bottom:1px solid var(--line);
-  }
-  .photo-group{margin-bottom:56px;}
-  .photo-group-title{
-    font-family:'Rajdhani', sans-serif;
-    font-weight:600;
-    font-size:14px;
-    letter-spacing:0.04em;
-    color:var(--sky-text);
-    margin:0 0 18px;
-    padding-bottom:10px;
-    border-bottom:1px solid var(--line);
-  }
-  .photo-group-note{
-    font-size:14px;
-    color:var(--steel);
-    padding:8px 0 4px;
-  }
-  .photo-grid{
-    display:grid;
-    grid-template-columns:repeat(4, 1fr);
-    gap:10px;
-  }
-  .photo-grid .photo-frame{
-    display:block;
-    overflow:hidden;
-    border-radius:2px;
-    border:1px solid transparent;
-    transition:border-color .4s var(--ease);
-  }
-  .photo-grid .photo-frame:hover{border-color:var(--sky);}
-  .photo-grid img{
-    width:100%;
-    height:100%;
-    aspect-ratio:3/2;
-    object-fit:cover;
-    display:block;
-    border-radius:2px;
-    transition:transform .5s var(--ease);
-  }
-  .photo-grid .photo-frame:hover img{transform:scale(1.08);}
-  @media (max-width:560px){
-    .photo-grid{grid-template-columns:repeat(2, 1fr);}
-  }
-
   /* ---- scroll reveal ---- */
   .reveal{opacity:0; transform:translateY(24px); transition:opacity .8s var(--ease), transform .8s var(--ease);}
   .reveal.is-visible{opacity:1; transform:none;}
 
   /* staggered entrance for child items once their section reveals */
-  .team-card, .svc-row, .photo-grid .photo-frame, .platform-card{
+  .team-card, .svc-row, .platform-card{
     opacity:0;
     transform:translateY(14px);
     transition:opacity .6s var(--ease), transform .6s var(--ease), background-color .3s var(--ease), border-color .4s var(--ease);
   }
   .reveal.is-visible .team-card,
   .reveal.is-visible .svc-row,
-  .reveal.is-visible .photo-grid .photo-frame,
   .reveal.is-visible .platform-card{
     opacity:1;
     transform:none;
@@ -499,14 +451,6 @@
   .reveal.is-visible .category .svc-row:nth-child(5){transition-delay:.16s;}
   .reveal.is-visible .category .svc-row:nth-child(6){transition-delay:.2s;}
   .reveal.is-visible .category .svc-row:nth-child(7){transition-delay:.24s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(1){transition-delay:.03s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(2){transition-delay:.06s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(3){transition-delay:.09s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(4){transition-delay:.12s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(5){transition-delay:.15s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(6){transition-delay:.18s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(7){transition-delay:.21s;}
-  .reveal.is-visible .photo-grid .photo-frame:nth-child(8){transition-delay:.24s;}
   .reveal.is-visible .svc-row:hover{transform:translateX(3px);}
 
   footer{
@@ -625,7 +569,7 @@
   @media (max-width:560px){
     header{padding:26px 0;}
     .hero{padding:60px 0 52px;}
-    .team, .services, .photography{padding-top:64px;}
+    .team, .services{padding-top:64px;}
     .close{padding:72px 0 88px;}
     nav{gap:10px 18px;}
   }
@@ -714,7 +658,6 @@
     <nav>
       <a href="#team">Team</a>
       <a href="#services">Services</a>
-      <a href="#photography">Photography</a>
       <a href="https://www.youtube.com/@BlueflamedigitalMarketing" target="_blank" rel="noopener">YouTube</a>
       <a href="https://x.com/Ronin1DM" target="_blank" rel="noopener">X</a>
       <a class="nav-cta" href="#contact">Contact</a>
@@ -881,75 +824,6 @@
   </div>
 </section>
 
-<section class="photography reveal" id="photography">
-  <div class="wrap">
-    <div class="section-head">
-      <h2>Photography</h2>
-      <p>Product, storefront, and brand photography for local businesses.</p>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-title">BUSINESS</p>
-      <div class="photo-grid">
-        <div class="photo-frame">
-        <img src="/images/photo-business-1.jpg" alt="Hair care product display at Classy Hair Studio" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-2.jpg" alt="Styling product shelf at a hair salon" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-3.jpg" alt="Salon waiting area seating" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-4.jpg" alt="Row of salon styling chairs" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-5.jpg" alt="Salon storefront window listing waxing and treatment services" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-6.jpg" alt="Hair studio storefront entrance" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-7.jpg" alt="Salon window listing haircuts, color, and extension services" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-business-8.jpg" alt="Classy Hair Studio storefront sign" loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-title">CAR DEALERSHIP</p>
-      <div class="photo-grid">
-        <div class="photo-frame">
-        <img src="/images/photo-dealership-1.jpg" alt="Custom-wrapped Cybertruck parked curbside, side view" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-dealership-2.jpg" alt="Custom-wrapped Cybertruck in a dealership lot, front angle" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-dealership-3.jpg" alt="Custom-wrapped Cybertruck, three-quarter view" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-dealership-4.jpg" alt="Close-up of Cybertruck tailgate and wrap finish" loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-
-    <div class="photo-group">
-      <p class="photo-group-title">PHOTO SHOOTS</p>
-      <div class="photo-grid">
-        <div class="photo-frame">
-        <img src="/images/photo-shoot-1.jpg" alt="Kids' astronaut-themed portrait photo shoot" loading="lazy" decoding="async">
-        </div>
-        <div class="photo-frame">
-        <img src="/images/photo-shoot-2.jpg" alt="Second portrait from the astronaut-themed photo shoot" loading="lazy" decoding="async">
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="close reveal" id="contact">
   <div class="wrap">
     <img class="close-logo" src="/images/r1-logo-dark.png" alt="Ronin 1 logo">
@@ -980,7 +854,6 @@
         <a href="/digital-marketing-services.html">Digital Marketing</a>
         <a href="/recruiting-staffing-services.html">Recruiting</a>
         <a href="/#services">Services &amp; Rates</a>
-        <a href="/#photography">Photography</a>
       </div>
       <div class="footer-col">
         <p class="footer-col-title">Platforms</p>
